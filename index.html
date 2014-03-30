@@ -37,17 +37,60 @@
 
 <p>I want to show you some examples what the library can do:</p>
 
-<p>1) Define a class. For example you could have a Pizza.js file. 
-`
-// Pizza.js
-Class.define('Pizza', {
-  name : 'SalamiPizza',
-  price : 10
-});</p>
+<p><strong>1)</strong> Define a class. 
+For example you could have a Pizza.js file. </p>
 
-<p>// In another *.js file you could create an instance of Pizza.
-var pizza = Class.create('Pizza');
-`</p>
+<div class="highlight highlight-javascript"><pre><span class="c1">// Pizza.js</span>
+<span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'Pizza'</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">name</span> <span class="o">:</span> <span class="s1">'Pizza'</span><span class="p">,</span>
+   <span class="nx">price</span> <span class="o">:</span> <span class="mi">10</span>
+<span class="p">});</span>
+
+<span class="c1">// In another *.js file you could create an instance of Pizza.</span>
+<span class="kd">var</span> <span class="nx">pizza</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">'Pizza'</span><span class="p">);</span>
+</pre></div>
+
+<p><strong>2)</strong> Doing inheritance:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// SalamiPizza.js</span>
+<span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">extend</span> <span class="o">:</span> <span class="s1">'Pizza'</span><span class="p">,</span> <span class="c1">// key "extend" tells you the super class.</span>
+   <span class="nx">name</span> <span class="o">:</span> <span class="s1">'SalamiPizza'</span>
+<span class="p">});</span>
+</pre></div>
+
+<p><strong>3)</strong> Work with constructor.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// SalamiPizza.js</span>
+<span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">extend</span> <span class="o">:</span> <span class="s1">'Pizza'</span><span class="p">,</span> <span class="c1">// key "extend" tells you the super class.</span>
+   <span class="nx">name</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+   <span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// init() will be automatically called by creating a SalamiPizza.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'SalamiPizza'</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p><strong>4)</strong> In addition the constructor can take as many parameters you want.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// SalamiPizza.js</span>
+<span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">extend</span> <span class="o">:</span> <span class="s1">'Pizza'</span><span class="p">,</span> <span class="c1">// key "extend" tells you the super class.</span>
+   <span class="nx">name</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+   <span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">price</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// init() will be automatically called by creating a SalamiPizza.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>   
+      <span class="k">this</span><span class="p">.</span><span class="nx">price</span> <span class="o">=</span> <span class="nx">price</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Just add parameters for the constructor after class name:</span>
+<span class="kd">var</span> <span class="nx">salamiPizza</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</pre></div>
+
+<p>Well, that`s it. 
+If you have any suggestions I would be happy for feedback.</p>
+
+<p>Have a nice day and lots of fun with class.js. :-)</p>
       </section>
     </div>
 
