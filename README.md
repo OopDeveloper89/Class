@@ -19,3 +19,9 @@ A quick example:
 For more details, see: http://oopdeveloper89.github.io/Class/
 
 And now have a lot of fun with class.js. :-)
+
+License
+=====
+MIT License
+Copyright 2014
+
