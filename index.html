@@ -64,7 +64,8 @@ For example you could have a Pizza.js file. </p>
 <div class="highlight highlight-javascript"><pre><span class="c1">// SalamiPizza.js</span>
 <span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="p">{</span>
    <span class="nx">extend</span> <span class="o">:</span> <span class="s1">'Pizza'</span><span class="p">,</span> <span class="c1">// key "extend" tells you the super class.</span>
-   <span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// init() will be automatically called by creating a SalamiPizza.</span>
+   <span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// init() will be automatically called </span>
+                       <span class="c1">// by creating a SalamiPizza.</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'SalamiPizza'</span><span class="p">;</span>
    <span class="p">}</span>
 <span class="p">});</span>
@@ -75,7 +76,8 @@ For example you could have a Pizza.js file. </p>
 <div class="highlight highlight-javascript"><pre><span class="c1">// SalamiPizza.js</span>
 <span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="p">{</span>
    <span class="nx">extend</span> <span class="o">:</span> <span class="s1">'Pizza'</span><span class="p">,</span> <span class="c1">// key "extend" tells you the super class.</span>
-   <span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">price</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// init() will be automatically called by creating a SalamiPizza.</span>
+   <span class="nx">init</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">price</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// init() will be automatically </span>
+                                  <span class="c1">// called by creating a SalamiPizza.</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>   
       <span class="k">this</span><span class="p">.</span><span class="nx">price</span> <span class="o">=</span> <span class="nx">price</span><span class="p">;</span>
    <span class="p">}</span>
