@@ -14,3 +14,8 @@ A quick example:
     // In another *.js file you could create a new instance of 
     // Person like this:
     var person = Class.create('Person');
+    
+    
+For more details, see: http://oopdeveloper89.github.io/Class/
+
+And now have a lot of fun with class.js. :-)
