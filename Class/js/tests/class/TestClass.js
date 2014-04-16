@@ -71,7 +71,6 @@ test('Call constructor with params...', function() {
 		olives : null,
 		
 		init : function(cheese, olives) {
-			console.log(cheese, olives);
 			this.cheese = cheese;
 			this.olives = olives;
 		}
@@ -81,4 +80,22 @@ test('Call constructor with params...', function() {
 	
 	ok(pizza.cheese, 'Cheese');
 	ok(pizza.olives, 'Olives');
+});
+
+test('Define static attribute and method...', function() {
+	Class.define('Example', {
+		staticProperty : { 
+			type : 'static',
+			value : 'test'
+		},
+		staticMethod : { 
+			type : 'static',
+			value : function() {
+				return 'bla';	
+			}
+		}
+	});
+	
+	ok(Class.classes.Example.staticProperty, 'test');
+	ok(Class.classes.Example.staticMethod(), 'bla');
 });

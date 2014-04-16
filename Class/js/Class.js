@@ -9,6 +9,11 @@
  */
 var Class = {
 
+	/**
+	 * Namespace. 
+	 *  
+	 * @type {Object} 
+	 */
 	classes : {},
     
     /**
@@ -36,15 +41,24 @@ var Class = {
         	
         	classSkeleton.prototype = new this.classes[superClassName];
         }
-        
+
         var classPropertyName = null;
         for (classPropertyName in classProperties) {
-            classSkeleton.prototype[classPropertyName] = classProperties[classPropertyName];
+			this.addPropertyValue(
+				classSkeleton, 
+				classPropertyName, 
+				classProperties[classPropertyName]);        	
         }     
         
         this.classes[className] = classSkeleton;
     },
     
+    /**
+     * Creates a defined class.
+     * 
+ 	 * @param Object className
+ 	 * @return Object
+     */
     create : function(className) {
         if (this.classes[className] === undefined) {
             throw Error('Cannot create non-defined class: ' + className);
@@ -68,6 +82,24 @@ var Class = {
         }
 
         return cls;
+    },
+    
+    /**
+     * Sets the class property. 
+     * 
+ 	 * @param {Object} classSkeleton
+ 	 * @param {String} propertyName
+ 	 * @param {Object} propertyValue
+     */    
+    addPropertyValue : function(classSkeleton, propertyName, propertyValue) {
+   		if (typeof propertyValue === 'object' && propertyValue !== null) {
+   			if (propertyValue.type === 'static') {
+				classSkeleton[propertyName] = propertyValue.value;   				
+   			}
+    	}
+    	else {
+			classSkeleton.prototype[propertyName] = propertyValue;    		
+    	}
     }
     
 };
