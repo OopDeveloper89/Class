@@ -87,6 +87,24 @@ For example you could have a Pizza.js file. </p>
 <span class="kd">var</span> <span class="nx">salamiPizza</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="s1">'SalamiPizza'</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </pre></div>
 
+<p><strong>4)</strong> Static property and methods
+You can give your classes static methods and properties, too.
+Example:</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="nx">Class</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'Example'</span><span class="p">,</span> <span class="p">{</span>
+           <span class="nx">staticProperty</span> <span class="o">:</span> <span class="p">{</span>
+              <span class="nx">type</span> <span class="o">:</span> <span class="s1">'static'</span><span class="p">,</span>
+              <span class="nx">value</span> <span class="o">:</span> <span class="s1">'test'</span>
+           <span class="p">},</span>
+           <span class="nx">staticMethod</span> <span class="o">:</span> <span class="p">{</span>
+              <span class="nx">type</span> <span class="o">:</span> <span class="s1">'static'</span><span class="p">,</span>
+              <span class="nx">value</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                 <span class="k">return</span> <span class="s1">'bla'</span><span class="p">;</span>  
+              <span class="p">}</span>
+           <span class="p">}</span>
+        <span class="p">});</span>
+</pre></div>
+
 <p>Well, that`s it. 
 If you have any suggestions I would be happy for feedback.</p>
 
