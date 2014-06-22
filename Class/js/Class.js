@@ -7,16 +7,8 @@
  * Date: 30.03.2014
  * Author: OopDeveloper89
  */
-var Class = {
+window.ClassJS = {
 
-	/**
-	 * Namespace of all classes created by ClassJS. 
-	 *  
-	 * @private
-	 * @type {Object} 
-	 */
-	classes : {},
-    
     /**
      * Defines a class.
      * 
@@ -27,7 +19,7 @@ var Class = {
     define : function(className, classProperties) {
     	classProperties = classProperties || {};
     	
-    	if (this.classes[className] != undefined) {
+    	if (window[className] != undefined) {
         	throw Error('Cannot redefine defined class: ' + className);
         }
 
@@ -36,11 +28,11 @@ var Class = {
         // If key "extend" given we do inheritance...
         if (classProperties.extend !== undefined) {
         	var superClassName = classProperties.extend;
-        	if (this.classes[superClassName] === undefined) {
+        	if (window[superClassName] === undefined) {
         		throw Error('Super class not defined: ' + superClassName);
         	}
         	
-        	classSkeleton.prototype = new this.classes[superClassName];
+        	classSkeleton.prototype = new window[superClassName];
         }
 
         var classPropertyName = null;
@@ -51,7 +43,7 @@ var Class = {
 				classProperties[classPropertyName]);        	
         }     
         
-        this.classes[className] = classSkeleton;
+        window[className] = classSkeleton;
     },
     
     /**
@@ -62,11 +54,11 @@ var Class = {
  	 * @return Object
      */
     create : function(className) {
-        if (this.classes[className] === undefined) {
+        if (window[className] === undefined) {
             throw Error('Cannot create non-defined class: ' + className);
         }
         
-        var cls = new this.classes[className];
+        var cls = new window[className];
         // If a constructor method given we call it...
         if (cls.init !== undefined) {
         	// Lets see if we have arguments for the constructor..

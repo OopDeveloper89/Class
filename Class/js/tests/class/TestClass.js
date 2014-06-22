@@ -1,42 +1,42 @@
 test('Create class...', function() {
-    Class.define('A', {
+    ClassJS.define('A', {
         id : 5,
         name : 'MyTestClassName',
         coolClass : true,
         init : function() {}
      });
     
-    var myTestClass = Class.create('A');
+    var myTestClass = ClassJS.create('A');
     ok(myTestClass.id, 5);
     ok(myTestClass.name, 'MyTestClassName');
     ok(myTestClass.coolClass, true);
 });
 
 test('Call constructor...', function() {
-    Class.define('Car', {
+	ClassJS.define('Car', {
         ps : 500,
         init : function() {
         	this.ps = 200;
         }
      });
 	
-	var car = Class.create('Car');
+	var car = ClassJS.create('Car');
 	
     ok(car.ps, 200);
 });
 
 test('Extend a class...', function() {
-    Class.define('SuperClass', {
+	ClassJS.define('SuperClass', {
         id : 5,
         name : 'SuperClassName',
      });
     
-    Class.define('SubClass', {
+	ClassJS.define('SubClass', {
     	extend : 'SuperClass',
     	id : 7
     });
     
-    var cls = Class.create('SubClass');
+    var cls = ClassJS.create('SubClass');
     ok(cls.id, 7);
     ok(cls.name, 'SuperClassName');
 });
@@ -44,7 +44,7 @@ test('Extend a class...', function() {
 test('Define already defined class...', function() {
     throws(
     		function() {
-    			Class.define('SubClass');    			
+    			ClassJS.define('SubClass');    			
     		}
     );
 });
@@ -52,7 +52,7 @@ test('Define already defined class...', function() {
 test('Create not defined class...', function() {
     throws(
     		function() {
-    			Class.create('NotDefinedClass');    			
+    			ClassJS.create('NotDefinedClass');    			
     		}
     );
 });
@@ -60,13 +60,13 @@ test('Create not defined class...', function() {
 test('Extend from not defined class...', function() {
 	throws(
     		function() {
-    			Class.define('B', { extend : 'C' });    			
+    			ClassJS.define('B', { extend : 'C' });    			
     		}
     );
 });
 
 test('Call constructor with params...', function() {
-	Class.define('Pizza', {
+	ClassJS.define('Pizza', {
 		cheese : null,	
 		olives : null,
 		
@@ -76,14 +76,14 @@ test('Call constructor with params...', function() {
 		}
 	});
 	
-	var pizza = Class.create('Pizza', 'Cheese', 'Olives');
+	var pizza = ClassJS.create('Pizza', 'Cheese', 'Olives');
 	
 	ok(pizza.cheese, 'Cheese');
 	ok(pizza.olives, 'Olives');
 });
 
 test('Define static attribute and method...', function() {
-	Class.define('Example', {
+	ClassJS.define('Example', {
 		staticProperty : { 
 			type : 'static',
 			value : 'test'
@@ -96,6 +96,6 @@ test('Define static attribute and method...', function() {
 		}
 	});
 	
-	ok(Class.classes.Example.staticProperty, 'test');
-	ok(Class.classes.Example.staticMethod(), 'bla');
+	ok(Example.staticProperty, 'test');
+	ok(Example.staticMethod(), 'bla');
 });
