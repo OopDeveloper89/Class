@@ -32,7 +32,7 @@ test('Extend a class...', function() {
      });
     
 	ClassJS.define('SubClass', {
-    	extend : 'SuperClass',
+    	extend : SuperClass,
     	id : 7
     });
     
