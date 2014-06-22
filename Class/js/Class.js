@@ -10,8 +10,9 @@
 var Class = {
 
 	/**
-	 * Namespace. 
+	 * Namespace of all classes created by ClassJS. 
 	 *  
+	 * @private
 	 * @type {Object} 
 	 */
 	classes : {},
@@ -19,7 +20,7 @@ var Class = {
     /**
      * Defines a class.
      * 
-     * @author oopdeveloper89
+     * @public
      * @param className
      * @param classProperties
      */
@@ -56,6 +57,7 @@ var Class = {
     /**
      * Creates a defined class.
      * 
+     * @public
  	 * @param Object className
  	 * @return Object
      */
@@ -87,6 +89,7 @@ var Class = {
     /**
      * Sets the class property. 
      * 
+     * @private
  	 * @param {Object} classSkeleton
  	 * @param {String} propertyName
  	 * @param {Object} propertyValue
