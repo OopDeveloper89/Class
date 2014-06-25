@@ -27,12 +27,11 @@ window.ClassJS = {
         
         // If key "extend" given we do inheritance...
         if (classProperties.extend !== undefined) {
-        	var superClass = classProperties.extend;
-        	if (superClass === undefined) {
+        	if (window[classProperties.extend] === undefined) {
         		throw Error('Super class not defined: ' + superClass);
         	}
         	
-        	classSkeleton.prototype = new superClass;
+        	classSkeleton.prototype = new window[classProperties.extend];
         }
 
         var classPropertyName = null;
